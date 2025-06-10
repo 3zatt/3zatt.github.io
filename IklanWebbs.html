@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {margin:0;}
+    
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+    
+    li {
+      float: left;
+    }
+    
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    
+    li a:hover:not(.active) {
+      background-color: #111;
+    }
+    
+    .active {
+      background-color: #04AA6D;
+    }
+    </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>KucingKu</h1>
+  <p>Cafe Kucing terbaik di Kebon Jeruk</p>
+</div>
+
+<ul>
+  <li><a href="coba1.html" class="active">Home</a></li>
+  <li class="dropdown">
+      <a href="makanan.html" class="dropbtn">Makanan</a>
+      <div class="dropdown-content">
+          <a href="makanan.html">Ayam Geprek</a>
+          <a href="makanan.html">Ayam Katsu</a>
+          <a href="makanan.html">French Fries</a>
+          <a href="makanan.html">Lasagna</a>
+          <a href="makanan.html">Mac 'n Cheese</a>
+      </div>
+  </li>
+  <li class="dropdown">
+      <a href="minuman.html" class="dropbtn">Minuman</a>
+      <div class="dropdown-content">
+          <a href="minuman.html">3D Cat Latte/Choco</a>
+          <a href="minuman.html">Espresso</a>
+          <a href="minuman.html">Kopi Hitam</a>
+          <a href="minuman.html">Teh Hangat</a>
+          <a href="minuman.html">Air Mineral</a>
+      </div>
+  </li>
+  <li><a href="Profil Pribadi.html">Profil</a></li>
+  <li><a href="Tentang.html">Tentang</a></li>
+</ul>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card" style="display: flex;">
+      <img src="Kucing1.png" alt="Kucing" style="width: 50%; height: auto; margin-right: 10px;">
+      <div style="flex: 1;">
+        <h3><b>KucingKu Cabang Kebon Jeruk</b></h3>
+        <p>KucingKu adalah Cafe Kucing yang memiliki lebih dari 50 kucing dan beragam jenis kucing. Kita juga menjunjung <b>Bhinneka Tunggal Ika</b> yaitu "Berbeda-beda tetapi tetap satu", oleh karena itu kita tidak membedakan kucing manapun, maupun kucing itu terlantar ataupun mahal.</p>
+        <button class="button button1">Buat Resrvasi</button>
+      </div>
+    </div>
+    <div class="card" style="display: flex;">
+      <div style="flex: 1;">
+        <h3><b>KucingKu Cabang Pekalongan</b></h3>
+        <p>KucingKu adalah Cafe Kucing yang memiliki lebih dari 25 kucing dan beragam jenis kucing. Rasakan nikmatnya makan dan minum kopi dengan kucing disampingmu! </p>
+        <button class="button button1">Buat Reservasi</button>
+      </div>
+      <img src="Kucing2.png" alt="Kucing" style="width: 50%; height: auto; margin-left: 10px;">
+    </div>
+    <div class="card" style="background-color: rgb(14, 26, 187);">
+      <h2>Cabang</h2>
+      <img src="Lokasi1.png" style="height: 200px;">
+      <p>Some text..</p>
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    </div>
+    <div class="card">
+      <h2>Cabang</h2>
+      <img src="Lokasi1.png" style="height: 200px;">
+      <p>Some text..</p>
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    </div>
+  </div> 
+</div>
+
+<div class="footer">
+  <h2>Footer</h2>
+</div>
+
+</body>
+</html>
+
+

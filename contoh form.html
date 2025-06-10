@@ -1,0 +1,313 @@
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfirmasi Pembayaran</title>
+    <style>
+        body {
+            background-image: url(metal92.jpg);
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+            margin: 0;
+            padding: 20px;
+			
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: transparent;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .isi {
+            text-align: center;
+            color: #333;
+        }
+
+        #paymentForm {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			max-height: 500%;
+			text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .form-row > div {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .form-row > div:last-child {
+            margin-right: 0;
+        }
+
+        .wrapper {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            margin-right: 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #21825A;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-family: 'Black Arial', sans-serif;
+        }
+
+        input[type="submit"]:hover {
+            margin-right: 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #21825A;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-family: 'Black Arial', sans-serif;
+        }
+
+        a.button {
+            margin-right: 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #21825A;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-family: 'Black Arial', sans-serif;
+			
+		}
+		
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            background-color: #fefefe;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            z-index: 999;
+            max-width: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .popup h3 {
+            margin-top: 0;
+        }
+
+        .popup-content {
+            margin-bottom: 10px;
+        }
+		
+		.popup-content h1 {
+			color: black;
+			font-size: 18px;
+		 
+		}
+
+        .popup button {
+            margin-right: 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #21825A;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-family: 'Black Arial', sans-serif;
+        }
+
+        .popup button:hover {
+            margin-right: 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #21825A;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-family: 'Black Arial', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <form id="paymentForm" onsubmit="return handleForm()">
+	<h2 class="isi">Pembayaran</h2>
+        <div class="form-group">
+            <label for="nama">Nama</label><br>
+            <input type="text" id="nama" name="nama" required><br>
+        </div>
+
+        <div class="form-group">
+            <label for="NIM">NIM</label><br>
+            <input type="text" id="NIM" name="NIM" required><br>
+        </div>
+        
+        <div class="form-group">
+            <label for="jurusan">Jurusan</label><br>
+            <select id="jurusan" name="jurusan" required>
+                <option value="">Pilih Jurusan</option>
+                <option value="Teknologi Informasi">Teknologi Informasi</option>
+                <option value="Sistem Informasi">Sistem Informasi</option>
+            </select><br><br>
+        </div>
+
+        <div class="form-row">
+            <div>
+                <center><label for="harga_makanan">Makanan</label><br></center>
+                <select id="harga_makanan" name="harga_makanan" required>
+                    <option value="">Pilih Menu</option>
+                    <option value="12000">Nasi Goreng - Promo Rp 12.000</option>
+                    <option value="15000">Rendang - Rp 15.000</option>
+                    <option value="15000">Soto Betawi - Rp 15.000</option>
+                </select><br><br>
+                <center><label for="jumlah_makanan">Jumlah Makanan</label><br></center>
+                <input type="number" id="jumlah_makanan" name="jumlah_makanan" required><br>
+            </div>
+
+            <div>
+                <center><label for="harga_minuman">Minuman</label><br></center>
+                <select id="harga_minuman" name="harga_minuman" required>
+                    <option value="">Pilih Menu</option>
+                    <option value="5000">Es Teh - Rp 5.000</option>
+                    <option value="6000">Kopi - Rp 6.000</option>
+                    <option value="7000">Jus Jeruk - Rp 7.000</option>
+                </select><br><br>
+                <center><label for="jumlah_minuman">Jumlah Minuman</label><br></center>
+                <input type="number" id="jumlah_minuman" name="jumlah_minuman" required><br>
+            </div>
+        </div>
+
+        <div class="form-group">   
+            <label for="metode_pembayaran">Metode Pembayaran</label><br>
+            <select id="metode_pembayaran" name="metode_pembayaran" required>
+                <option value="Tunai">Tunai</option>
+                <option value="Transfer">Transfer</option>
+                <option value="COD">COD</option>
+            </select><br><br>
+        </div>    
+
+        <center><input type="submit" value="Submit">
+        <a class="button" href="Detail.html">Kembali</a>
+        <a class="button" href="Cover.html">Beranda</a></center>
+    </form>
+	
+    <div class="overlay" id="overlay">
+        <div class="popup" id="popup">
+            <center><h3>Konfirmasi</h3></center>
+            <div class="popup-content">
+                <p>Nama : <span id="popup-nama"></span></p>
+                <p>NIM : <span id="popup-NIM"></span></p>
+                <p>Jurusan : <span id="popup-jurusan"></span></p>
+                <p>Harga Makanan : <span id="popup-harga_makanan"></span></p>
+                <p>Jumlah Makanan : <span id="popup-jumlah_makanan"></span></p>
+                <p>Harga Minuman : <span id="popup-harga_minuman"></span></p>
+                <p>Jumlah Minuman : <span id="popup-jumlah_minuman"></span></p>
+                <p>Metode Pembayaran : <span id="popup-metode_pembayaran"></span></p>
+                <p>Total Pembayaran : <span id="popup-total_pembayaran"></span></p>
+                <center><button onclick="closePopup()">Close</button></center>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function handleForm() {
+        var nama = document.getElementById('nama').value.trim();
+        var NIM = document.getElementById('NIM').value.trim();
+        var jurusan = document.getElementById('jurusan').value;
+        var harga_makanan = parseFloat(document.getElementById('harga_makanan').value.trim());
+        var jumlah_makanan = parseInt(document.getElementById('jumlah_makanan').value.trim(), 10);
+        var harga_minuman = parseFloat(document.getElementById('harga_minuman').value.trim());
+        var jumlah_minuman = parseInt(document.getElementById('jumlah_minuman').value.trim(), 10);
+        var metode_pembayaran = document.getElementById('metode_pembayaran').value;
+        var total_pembayaran = harga_makanan * jumlah_makanan + harga_minuman * jumlah_minuman;
+        
+        var message = Detail Pesanan:\nNama: ${nama}\nNIM: ${NIM}\nJurusan: ${jurusan}\nHarga Makanan: Rp ${harga_makanan.toLocaleString('id-ID')}\nJumlah Makanan: ${jumlah_makanan}\nHarga Minuman: Rp ${harga_minuman.toLocaleString('id-ID')}\nJumlah Minuman: ${jumlah_minuman}\nMetode Pembayaran: ${metode_pembayaran}\nTotal Pembayaran: Rp ${total_pembayaran.toLocaleString('id-ID')};
+    
+        alert(message);
+        
+        document.getElementById('popup-nama').textContent = nama;
+        document.getElementById('popup-NIM').textContent = NIM;
+        document.getElementById('popup-jurusan').textContent = jurusan;
+        document.getElementById('popup-harga_makanan').textContent = 'Rp ' + harga_makanan.toLocaleString('id-ID');
+        document.getElementById('popup-jumlah_makanan').textContent = jumlah_makanan;
+        document.getElementById('popup-harga_minuman').textContent = 'Rp ' + harga_minuman.toLocaleString('id-ID');
+        document.getElementById('popup-jumlah_minuman').textContent = jumlah_minuman;
+        document.getElementById('popup-metode_pembayaran').textContent = metode_pembayaran;
+        document.getElementById('popup-total_pembayaran').textContent = 'Rp ' + total_pembayaran.toLocaleString('id-ID');
+
+        document.getElementById('overlay').style.display = 'block';
+        document.getElementById('popup').style.display = 'block';
+        
+        return false;
+    }
+
+    function closePopup() {
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById('popup').style.display = 'none';
+    }
+    </script>
+</body>
+</html>
